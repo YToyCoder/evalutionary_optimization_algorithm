@@ -70,6 +70,7 @@ if __name__ == '__main__':
     fig,aix = plt.subplots(1,2)
     for i in range(len(path)-1) :
         aix[0].plot([cs[path[i]].x,cs[path[i+1]].x],[cs[path[i]].y,cs[path[i+1]].y])
+    aix[0].plot([cs[path[0]].x,cs[path[len(path)-1]].x],[cs[path[0]].y,cs[path[len(path)-1]].y])
     val_ls = load("distance")
     aix[1].plot(list(range(len(val_ls))),val_ls)
     plt.savefig("two-figure.png")

@@ -17,7 +17,8 @@
 
 namespace _M_evalutionary_optimization_algorithm
 {
-
+// @param std::string file path
+// @return std::vector<city_infor> vector for city_infor class ( location information )
 std::vector<city_infor> load_infor(std::string path)
 {
     std::ifstream infile(path);
@@ -35,6 +36,9 @@ std::vector<city_infor> load_infor(std::string path)
     return cities;
 };
 
+// @param city_infor city a
+// @param city_infor city b
+// @return double distance between a and b
 double distance(city_infor a, city_infor b)
 {
     double x_2 = std::abs(a.x-b.x);
@@ -42,12 +46,15 @@ double distance(city_infor a, city_infor b)
     return std::sqrt(std::pow(x_2,2)+std::pow(y_2,2));
 }
 
+// @param size_t size of a group of cities
+// @return std::vector<double> 
 std::vector<double> init_path(size_t cities_size)
 {
     std::vector<double> all_path(cities_size*(cities_size-1));
     return all_path;
 }
 
+// @param std::vector<city_infor> all city location information
 void ant_colony_algorithm_for_TSP( std::vector<city_infor> cities )
 {
     std::ofstream outfile;
@@ -131,7 +138,7 @@ void ant_colony_algorithm_for_TSP( std::vector<city_infor> cities )
             double sum_len = 0;
             for(int city=0 ; city<path_for_ant_k.size()-1 ; city++)
                 sum_len += distance(cities[path_for_ant_k[city]],cities[path_for_ant_k[city+1]]);
-            // sum_len += distance(cities[0],cities[cities.size()-1]);
+            sum_len += distance(cities[0],cities[cities.size()-1]);
             if(sum_len < best_distance)
             {
                 best_distance = sum_len;
