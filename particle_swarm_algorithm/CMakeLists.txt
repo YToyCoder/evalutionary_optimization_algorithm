@@ -1,5 +1,5 @@
 cmake_minimum_required( VERSION 3.1 )
-project( particle-swam-algorithm )
+project( particle_swam_algorithm )
 include_directories("PROJECT_BINARY_DIR")
 add_subdirectory(src)
 list(APPEND EXTRA_LIBS src)
