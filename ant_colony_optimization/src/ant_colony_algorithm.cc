@@ -54,6 +54,7 @@ std::vector<double> init_path(size_t cities_size)
     return all_path;
 }
 
+// reference book :《進化優化算法-基於仿生和種群的計算機智能方法》【美】丹·西蒙 清華大學出版社
 // @param std::vector<city_infor> all city location information
 void ant_colony_algorithm_for_TSP( std::vector<city_infor> cities )
 {
